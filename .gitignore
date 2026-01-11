@@ -95,21 +95,27 @@ dmypy.json
 .DS_Store
 Thumbs.db
 
-# Data files (privacy - do not commit patient data)
+# ============================================
+# PROJECT SPECIFIC
+# ============================================
+
+# Data files (PRIVACY - patient data must not be committed)
 data/raw/
 data/processed/
-*.npy
-*.npz
 
-# Model files (too large for git)
-results/models/*.joblib
-results/models/*.pkl
-results/models/*.pt
-results/models/*.pth
-
-# Feature files (large)
-results/features/*.npy
+# Large model formats (if any)
+*.pt
+*.pth
+*.h5
 
 # Temporary files
 *.tmp
 *.temp
+
+# ============================================
+# WHAT WE DO COMMIT:
+# - results/models/*.joblib  (trained models for prototype)
+# - results/features/*.npy   (extracted features for reproducibility)
+# - results/figures/         (visualizations for thesis)
+# - results/metrics/         (evaluation results)
+# ============================================
