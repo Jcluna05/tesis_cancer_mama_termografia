@@ -1,0 +1,42 @@
+{
+  "efficientnet_b0_svm": {
+    "metrics": {
+      "accuracy": 0.8780487804878049,
+      "precision": 0.8,
+      "recall": 0.8571428571428571,
+      "f1_score": 0.8275862068965517,
+      "specificity": 0.8888888888888888,
+      "true_negatives": 24,
+      "false_positives": 3,
+      "false_negatives": 2,
+      "true_positives": 12,
+      "auc_roc": 0.9206349206349207,
+      "average_precision": 0.9261363636363635
+    },
+    "best_params": {
+      "svm__C": 10,
+      "svm__gamma": "scale",
+      "svm__kernel": "rbf"
+    }
+  },
+  "resnet50_svm": {
+    "metrics": {
+      "accuracy": 0.9024390243902439,
+      "precision": 0.8571428571428571,
+      "recall": 0.8571428571428571,
+      "f1_score": 0.8571428571428571,
+      "specificity": 0.9259259259259259,
+      "true_negatives": 25,
+      "false_positives": 2,
+      "false_negatives": 2,
+      "true_positives": 12,
+      "auc_roc": 0.9894179894179894,
+      "average_precision": 0.981547619047619
+    },
+    "best_params": {
+      "svm__C": 10,
+      "svm__gamma": "scale",
+      "svm__kernel": "rbf"
+    }
+  }
+}
