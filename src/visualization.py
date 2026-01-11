@@ -316,7 +316,7 @@ def plot_feature_distribution(
                 n_components=2,
                 random_state=random_state,
                 perplexity=min(30, len(features) - 1),
-                n_iter=1000
+                max_iter=1000
             )
             projected = reducer.fit_transform(features)
     elif method == 'pca':
