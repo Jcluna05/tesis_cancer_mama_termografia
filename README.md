@@ -28,6 +28,11 @@ Este enfoque de transfer learning es especialmente adecuado para datasets peque�
 
 ```
 tesis_cancer_mama_termografia/
+├── app/                        # Prototipo Streamlit
+│   ├── __init__.py
+│   ├── streamlit_app.py        # Aplicación principal
+│   ├── predictor.py            # Lógica de predicción
+│   └── utils.py                # Utilidades de preprocesamiento
 ├── data/
 │   ├── raw/                    # Dataset original (DMR-IR)
 │   └── processed/              # Datos preprocesados
@@ -45,7 +50,8 @@ tesis_cancer_mama_termografia/
 │   ├── models/                 # Modelos entrenados (.joblib)
 │   ├── metrics/                # Métricas en JSON
 │   └── features/               # Features extraídas (.npy)
-├── requirements.txt
+├── requirements.txt            # Dependencias para entrenamiento
+├── requirements_app.txt        # Dependencias para prototipo
 └── README.md
 ```
 
@@ -224,6 +230,49 @@ Los resultados se guardan automáticamente en:
 - Seed fijo: `random_state=42`
 - Features guardadas para reproducir resultados
 - Modelos serializados con joblib
+
+## Prototipo con Interfaz Gráfica
+
+El proyecto incluye un prototipo funcional con interfaz gráfica desarrollado en Streamlit que permite:
+- Cargar imágenes termográficas
+- Visualizar el preprocesamiento aplicado (CLAHE)
+- Obtener la clasificación (Saludable/Anomalía) con nivel de confianza
+
+### Estructura del Prototipo
+
+```
+app/
+├── __init__.py           # Inicialización del módulo
+├── streamlit_app.py      # Aplicación principal
+├── predictor.py          # Lógica de predicción
+└── utils.py              # Utilidades de preprocesamiento
+```
+
+### Instalación del Prototipo
+
+```bash
+# Instalar dependencias del prototipo
+pip install -r requirements_app.txt
+```
+
+### Ejecución del Prototipo
+
+```bash
+# Desde el directorio raíz del proyecto
+streamlit run app/streamlit_app.py
+```
+
+La aplicación se abrirá en `http://localhost:8501`
+
+### Características del Prototipo
+
+- **Interfaz en español**: Diseñada para presentación de tesis
+- **Visualización de preprocesamiento**: Muestra la imagen original y con CLAHE
+- **Resultados claros**: Indicadores visuales de color para el resultado
+- **Información del modelo**: Métricas de rendimiento visibles
+- **Disclaimer médico**: Aviso importante sobre uso profesional
+
+---
 
 ## Cita
 
