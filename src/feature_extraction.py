@@ -245,7 +245,10 @@ def extract_features(
 
     print(f"Extracted features shape: {features.shape}")
 
-    return features, all_indices if augment else features
+    if augment:
+        return features, all_indices
+    else:
+        return features
 
 
 def extract_features_with_augmentation(
