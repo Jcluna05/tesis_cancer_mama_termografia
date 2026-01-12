@@ -294,13 +294,13 @@ def render_images(result: dict, show_clahe: bool = True):
         col1, col2 = st.columns(2)
         with col1:
             st.markdown("##### Imagen Original")
-            st.image(result['original_image'], use_container_width=True)
+            st.image(result['original_image'], width="stretch")
         with col2:
             st.markdown("##### Imagen con CLAHE")
-            st.image(result['clahe_image'], use_container_width=True)
+            st.image(result['clahe_image'], width="stretch")
     else:
         st.markdown("##### Imagen Cargada")
-        st.image(result['original_image'], use_container_width=True)
+        st.image(result['original_image'], width="stretch")
 
 
 def render_footer():
@@ -384,7 +384,7 @@ def main():
 
             with col_img:
                 st.markdown("### 🖼️ Imagen Cargada")
-                st.image(image_bytes, use_container_width=True)
+                st.image(image_bytes, width="stretch")
 
             with col_result:
                 st.markdown("### 🔍 Análisis")

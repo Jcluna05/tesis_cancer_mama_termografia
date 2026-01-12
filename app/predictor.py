@@ -76,13 +76,24 @@ class ThermographyPredictor:
     def _load_classifier(self):
         """
         Carga el clasificador SVM entrenado desde archivo.
+
+        El modelo se guarda como un diccionario con las claves:
+        - 'model': El pipeline sklearn (StandardScaler + SVM)
+        - 'metadata': Información adicional del modelo
         """
         if not self.model_path.exists():
             raise FileNotFoundError(
                 f"No se encontró el modelo en: {self.model_path}"
             )
 
-        return joblib.load(self.model_path)
+        saved_data = joblib.load(self.model_path)
+
+        # El modelo se guarda como diccionario con 'model' y 'metadata'
+        if isinstance(saved_data, dict) and 'model' in saved_data:
+            return saved_data['model']
+        else:
+            # Compatibilidad: si se guardó directamente el modelo
+            return saved_data
 
     def _preprocess_for_cnn(self, image: np.ndarray) -> torch.Tensor:
         """
